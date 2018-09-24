@@ -1,0 +1,824 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python基础," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文简要介绍Python语法，不涉及高深的东西，适合快速入门">
+<meta name="keywords" content="python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python语法初识">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/Python/index.html">
+<meta property="og:site_name" content="blogzhb">
+<meta property="og:description" content="本文简要介绍Python语法，不涉及高深的东西，适合快速入门">
+<meta property="og:updated_time" content="2018-09-23T14:12:14.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python语法初识">
+<meta name="twitter:description" content="本文简要介绍Python语法，不涉及高深的东西，适合快速入门">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/18/Python/"/>
+
+
+
+
+
+  <title> Python语法初识 | blogzhb </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband">
+    </div>
+<a href="https://github.com/zhaobuxuan" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">blogzhb</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blogzhb">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python语法初识
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T09:24:34+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文简要介绍Python语法，不涉及高深的东西，适合快速入门<br><a id="more"></a><br>入门推荐：唐宇迪    <a href="https://www.bilibili.com/video/av22404277/" target="_blank" rel="external">https://www.bilibili.com/video/av22404277/</a></p>
+<h1 id="几种常用类型：int-float-str-bool"><a href="#几种常用类型：int-float-str-bool" class="headerlink" title="几种常用类型：int  float str bool"></a>几种常用类型：int  float str bool</h1><blockquote>
+<p>type(变量名)    打印出类型<br>tang =1.5    转换类型  tang2=int(tang)  值是1<br>type(tang2)   int<br>str(tang)  转字符串</p>
+</blockquote>
+<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><blockquote>
+<p>乘法 乘一个数   tang_str=”h “    tang_str*3=”h h h “<br>len(tang_str)  打印字符串长度<br>tang_str.split()  切分字符串，默认空格    可指定分隔符<br>.join(tang_str)   合并在一起<br>.replace(‘’,’’)<br>.upper()   .lower()  大小写<br>.strip()  去掉空格  .lstrip()  .rstrip()<br>‘{} {} {}’.format(‘’,’’,’’)   格式化  {}可定义存放位置   也可以指定参数<br>注意：对字符串修改后定义新的变量</p>
+</blockquote>
+<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><blockquote>
+<p>通过[]来创建一个list结构,里面放任何类型都可以，没有一个长度限制<br>tang=[1,2,3]<br>tang=list([1,2,3])  </p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>操作：</strong><br>len(tang)  长度<br>两个list想加，合并list<br>乘一个数，复制list并合并<br>索引基0，tang(0:)    从零开始打印所有<br>通过索引找到位置，可替换对应元素。  a[:]=[‘’,’’] 替换所有<br>删除del tang[0]    则 tang=[2，3]<br>del  a[3:]   从3开始全部删除<br>8 in a       not in      也可以判断字符串串    true  false</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>核心操作：</strong><br>list可嵌套list<br>.count(‘’)   括号内传入需要计数的参数  可统计list中有多少个此种参数<br>.index(‘’)   ——-                定位<br>.append(‘’)  每次只能在最后增加一个元素，可添加list结构<br>.insert(2,’’) 在第二个位置插入某个东西<br>.remove(‘’) 可去掉list，如果有多个元素，会去掉第一个<br>.pop(1)  弹出第一个元素   原list中消失<br>.sort()    排序  无参数<br>tang2=sorted(tang)  此种方法原始数据不变  tang2是新数据<br>.reverse()   反序</p>
+</blockquote>
+<h1 id="字典dict-定义-key-value"><a href="#字典dict-定义-key-value" class="headerlink" title="字典dict   {}定义  key-value"></a>字典dict   {}定义  key-value</h1><blockquote>
+<p><strong>字典的结构操作</strong><br>tang={}     tang[‘first’]=123<br>键是唯一的<br>取值  tang[‘first’]   或者.get(‘’)<br>字典中没有顺序之分<br>核心操作：<br>key一般用字符串    value可以存放list、字典，可以任意存放</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>可以对键值进行操作</strong><br>.pop(‘键值’)   弹出操作，弹出value<br>del tang[‘键值’]  删除对应键值对<br>原字典.update(新的字典)   对原字典进行更新操作   若key重复，则value以新字典为准<br>‘tang’ in tang  判断键在不在字典当中<br>.keys()   打印所有的键<br>.values()  打印所有值<br>.items()   都打印</p>
+</blockquote>
+<h1 id="集合set-集合会保留下来唯一的元素"><a href="#集合set-集合会保留下来唯一的元素" class="headerlink" title="集合set   集合会保留下来唯一的元素"></a>集合set   集合会保留下来唯一的元素</h1><blockquote>
+<p>tang=set([123,123,456,456])<br>  123 456<br>  set即对list去重<br>  或者tang={11,11,22,22}   11  22   </p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>集合的操作：</strong><br>交集        a={1,2,3,4} b={2,3,4,5}  a.union(b)或者a|b  {1,2,3,4,5}<br>并集        a.intersection(b) 或者 a&amp;b {2,3,4}<br>差异        a.difference(b)相当于a-b   b.difference(a)相当于b-a<br>b.issubset(a)或者b&lt;=a     b是不是a的子集<br>.add(值)  添加一个值<br>.update(参数)<br>.remove(参数)<br>.pop()   弹出最前面的值</p>
+</blockquote>
+<hr>
+<h1 id="赋值机制"><a href="#赋值机制" class="headerlink" title="赋值机制"></a>赋值机制</h1><blockquote>
+<p>id(对象)   a is b<br>对于值比较小的值，采用重用机制<br>值比较大的话，属于两个不同的对象</p>
+</blockquote>
+<h1 id="判断、循环"><a href="#判断、循环" class="headerlink" title="判断、循环"></a>判断、循环</h1><p><strong>判断</strong><br>if   elif    else<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">tang=<span class="number">100</span></div><div class="line"><span class="keyword">if</span> tang&gt;<span class="number">100</span>:</div><div class="line">    print(<span class="string">'&gt;100'</span>)</div><div class="line"><span class="keyword">elif</span> tang&lt;<span class="number">100</span>:</div><div class="line">    print(<span class="string">'&lt;100'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'=100'</span>)</div></pre></td></tr></table></figure></p>
+<p>判断某个数据是否在list中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tang=[<span class="number">123</span>,<span class="number">456</span>,<span class="number">789</span>]</div><div class="line"><span class="keyword">if</span> <span class="number">123</span> <span class="keyword">in</span> tang:</div><div class="line">    print(<span class="string">'ok'</span>)</div></pre></td></tr></table></figure></p>
+<p>判断某个数据是否在dict中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">zhang=&#123;<span class="string">'zhang'</span>:<span class="number">123</span>,<span class="string">'bin'</span>:<span class="number">456</span>&#125;</div><div class="line"><span class="keyword">if</span> <span class="string">'zhang'</span> <span class="keyword">in</span> zhang:</div><div class="line">    print(<span class="string">'ok'</span>)</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>循环</strong></p>
+<p>最基本操作<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">zhang=<span class="number">0</span></div><div class="line"><span class="keyword">while</span> zhang&lt;<span class="number">10</span>:</div><div class="line">    print(zhang)</div><div class="line">    zhang+=<span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>对list循环<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">zhangs=[<span class="string">'zhb'</span>,<span class="string">'bin'</span>,<span class="string">'951112'</span>]</div><div class="line"><span class="keyword">while</span> zhangs:</div><div class="line">    zhang=zhangs.pop()</div><div class="line">    print(zhang)</div><div class="line"></div><div class="line"></div><div class="line">zhangs=[<span class="string">'zhb'</span>,<span class="string">'bin'</span>,<span class="string">'951112'</span>]</div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> zhangs:</div><div class="line">    <span class="keyword">print</span> (value)</div><div class="line"></div><div class="line">zhang=[<span class="number">123</span>,<span class="number">456</span>,<span class="number">789</span>]</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(zhang)):</div><div class="line">    print(zhang[i])</div></pre></td></tr></table></figure></p>
+<h1 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h1><p>return 表示返回值 可以设置参数的默认值（设置之后，也可以在传参）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,b)</span>:</span></div><div class="line">    <span class="keyword">return</span> (a+b)</div><div class="line">tang=add(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">tang</div></pre></td></tr></table></figure></p>
+<p>函数可以返回多个值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,*args)</span>:</span></div><div class="line">    b=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</div><div class="line">        a+=i</div><div class="line">        b+=a</div><div class="line">    <span class="keyword">return</span> a,b</div><div class="line">a,b=add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line">print(a,b)</div></pre></td></tr></table></figure></p>
+<p>设置无限个参数 *args<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,*args)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</div><div class="line">        a+=i</div><div class="line">    <span class="keyword">return</span> a</div><div class="line">add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div></pre></td></tr></table></figure></p>
+<p>参数可以设置为键值对<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add2</span><span class="params">(a,**kvargs)</span>:</span></div><div class="line">    <span class="keyword">for</span> key,values <span class="keyword">in</span> kvargs.items():</div><div class="line">        print(key,values)</div><div class="line">add2(<span class="number">1</span>,x=<span class="number">2</span>,y=<span class="number">3</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="模块与包"><a href="#模块与包" class="headerlink" title="模块与包"></a>模块与包</h1><p><strong>ananconda<br>写出脚本文件 %%writefile zhang.py<br>执行脚本文件 %run zhang.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">%%writefile zhang.py</div><div class="line"></div><div class="line">zhang_v=<span class="number">10</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add1</span><span class="params">(zhang_list)</span>:</span></div><div class="line">    zhang_sum=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(zhang_list)):</div><div class="line">        zhang_sum+=zhang_list[i]</div><div class="line">    <span class="keyword">return</span> zhang_sum</div><div class="line"></div><div class="line">zhang_list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">print(add1(zhang_list))</div></pre></td></tr></table></figure>
+<p><strong>调用包中的属性及方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> zhang</div><div class="line"></div><div class="line">zhang.zhang_v</div><div class="line"></div><div class="line">list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line">zhang.add1(list)</div></pre></td></tr></table></figure></p>
+<p><strong>导入对应的变量、方法或者导入所有</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> zhang <span class="keyword">import</span> zhang_v,add1</div><div class="line">zhang_v</div><div class="line"></div><div class="line"><span class="keyword">from</span> zhang <span class="keyword">import</span> *</div><div class="line">list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">add1(list)</div></pre></td></tr></table></figure></p>
+<p><strong>重命名</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> zhang <span class="keyword">as</span> zh</div><div class="line">zh.zhang_v</div></pre></td></tr></table></figure></p>
+<p><strong>删除操作</strong><br>执行后，对应空间内的脚本文件将消失<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">os.remove(<span class="string">'zhang.py'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>出现异常，直接不执行后面的代码 执行异常处理操作<br>ValueError是具体的异常 Exception 宽泛的异常</p>
+<p>处理多个异常和单个相同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">        input_number=input(<span class="string">'write a number'</span>)</div><div class="line">        <span class="keyword">if</span> input_number ==<span class="string">'q'</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        result=math.log(float(input_number))</div><div class="line">        print(result)</div><div class="line"><span class="keyword">except</span> ValueError:</div><div class="line">    print(<span class="string">'ValueError：write a right number'</span>)</div></pre></td></tr></table></figure>
+<p>自定义异常<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhError</span><span class="params">(ValueError)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line">zhlist=[<span class="string">'1'</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    cur_input=input()</div><div class="line">    <span class="keyword">if</span> cur_input <span class="keyword">not</span> <span class="keyword">in</span> zhlist:</div><div class="line">        <span class="keyword">raise</span> ZhError(<span class="string">'invalid input: %s'</span> %cur_input)</div></pre></td></tr></table></figure></p>
+<p>finally 无论如何执行都会执行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="number">1</span>/<span class="number">0</span></div><div class="line"><span class="keyword">except</span>:</div><div class="line">    print(<span class="string">'error'</span>)</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    print(<span class="string">'123'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类的定义<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></div><div class="line">    <span class="string">'帮助信息：类是这么写的'</span></div><div class="line">    <span class="comment">#number是所有实例共享的</span></div><div class="line">    number=<span class="number">100</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span>     <span class="comment">#构造方法必须这么写</span></div><div class="line">        self.name=name</div><div class="line">        self.age=age</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">display</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'number=:'</span>,self.number)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">display_age</span><span class="params">(self)</span>:</span></div><div class="line">        print(self.age)</div></pre></td></tr></table></figure></p>
+<p>self相当于必须制定的额外参数的名称，代表当前类的实例，是必须指定的</p>
+<p>创建对象，访问属性、方法，及修改值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">p1=People(<span class="string">'zhb'</span>,<span class="number">12</span>)</div><div class="line">p1.number</div><div class="line">p1.display_age()</div><div class="line">p1.name=<span class="string">'王超'</span></div></pre></td></tr></table></figure></p>
+<p>删除属性<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p2=People(<span class="string">'zhbbb'</span>,<span class="number">12</span>)</div><div class="line"><span class="keyword">del</span> p2.name</div></pre></td></tr></table></figure></p>
+<p>删除之后，再次访问p2.name，会AttributeError: ‘People’ object has no attribute ‘name’</p>
+<p>对属性的其他操作方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hasattr(p1,<span class="string">'name'</span>) </div><div class="line">getattr(p1,<span class="string">'name'</span>) </div><div class="line">getattr(p1,<span class="string">'name'</span>,<span class="string">'hello'</span>) </div><div class="line">delattr(p1,<span class="string">'name'</span>)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python基础/" rel="tag"># python基础</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/23/Python2/" rel="next" title="Python语法初识2">
+                <i class="fa fa-chevron-left"></i> Python语法初识2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/多线程启动为什么不是调用run()，而是start()/" rel="prev" title="多线程">
+                多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="zhb" />
+          <p class="site-author-name" itemprop="name">zhb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.muzili.ren/" title="木子博客" target="_blank">木子博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wwxinjie.github.io/" title="wwxinjie" target="_blank">wwxinjie</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#几种常用类型：int-float-str-bool"><span class="nav-number">1.</span> <span class="nav-text">几种常用类型：int  float str bool</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串操作"><span class="nav-number">2.</span> <span class="nav-text">字符串操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List"><span class="nav-number">3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典dict-定义-key-value"><span class="nav-number">4.</span> <span class="nav-text">字典dict   {}定义  key-value</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合set-集合会保留下来唯一的元素"><span class="nav-number">5.</span> <span class="nav-text">集合set   集合会保留下来唯一的元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#赋值机制"><span class="nav-number">6.</span> <span class="nav-text">赋值机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断、循环"><span class="nav-number">7.</span> <span class="nav-text">判断、循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数定义"><span class="nav-number">8.</span> <span class="nav-text">函数定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块与包"><span class="nav-number">9.</span> <span class="nav-text">模块与包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">10.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">11.</span> <span class="nav-text">类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhb</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script>
+  $('pre code').each(function(i, block) {
+  //hljs.highlightBlock(block);
+  var lines = $(this).text().split('\n').length - 1;
+  var $numbering = $('<ul/>').addClass('pre-numbering');
+  $(this)
+    .addClass('has-numbering')
+    .parent()
+    .append($numbering);
+  for(i=1;i<=lines;i++){
+    $numbering.append($('<li/>').text(i));
+  }
+});
+</body>
+</html>
