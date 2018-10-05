@@ -367,20 +367,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>There are two sorted arrays nums1 and nums2 of size m and n respectively.<br>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).<br>You may assume nums1 and nums2 cannot be both empty.</p>
-<h1 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h1><p>有两个排序数组NUS1和NUMS2，大小分别为M和N。<br>找到两个排序数组的中值。总的运行时间复杂度应该是O（log（m+n））。<br>你可以假设NUMS1和NUMS2不能都是空的。</p>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><blockquote>
-<p>Example 1:<br>nums1 = [1, 3]<br>nums2 = [2]<br>The median is 2.0</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>Example 2:<br>nums1 = [1, 2]<br>nums2 = [3, 4]<br>The median is (2 + 3)/2 = 2.5</p>
-</blockquote>
-<h1 id="思路及实现"><a href="#思路及实现" class="headerlink" title="思路及实现"></a>思路及实现</h1><p>合并加排序，再取中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMedianSortedArrays</span><span class="params">(self, nums1, nums2)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums1: List[int]</div><div class="line">        :type nums2: List[int]</div><div class="line">        :rtype: float</div><div class="line">        """</div><div class="line">        newNums = nums1 + nums2</div><div class="line"></div><div class="line">        newNums.sort()</div><div class="line"></div><div class="line">        value = len(newNums)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (value % <span class="number">2</span>) == <span class="number">0</span>:</div><div class="line">            num1 = newNums[value//<span class="number">2</span> - <span class="number">1</span>]</div><div class="line">            num2 = newNums[value//<span class="number">2</span>]</div><div class="line">            <span class="keyword">return</span> (num1 + num2)/<span class="number">2</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> float(newNums[value//<span class="number">2</span>])</div></pre></td></tr></table></figure>
-          
+          <p>Median of Two Sorted Arrays<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/04/4-Median-of-Two-Sorted-Arrays/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
